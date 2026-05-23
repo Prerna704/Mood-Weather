@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mood Weather Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="app-shell">
+        <aside class="left-rail">
+            <div class="brand-logo">MW</div>
+            <nav class="rail-nav">
+                <button class="rail-btn rail-btn-active" data-action="home">Home</button>
+                <button class="rail-btn" data-action="map">Map</button>
+                <button class="rail-btn" data-action="notes">Notes</button>
+                <button class="rail-btn" data-action="gear">Gear</button>
+            </nav>
+        </aside>
+
+        <section class="dashboard-main">
+            <header class="top-bar">
+                <div class="welcome-block">
+                    <p class="hello-text">Hello,</p>
+                    <h1>Mood Weather</h1>
+                </div>
+
+                <form class="search-form">
+                    <div class="search-input-wrap">
+                        <input type="search" id="search" placeholder="Search any city..." autocomplete="off" />
+                        <div id="search-suggestions" class="search-suggestions"></div>
+                    </div>
+                    <select id="country-filter" title="Country filter">
+                        <option value="">Global</option>
+                        <option value="IN">India</option>
+                    </select>
+                    <button type="submit">Go</button>
+                    <button type="button" id="locate-btn" class="locate-btn">My Location</button>
+                </form>
+            </header>
+
+            <section class="hero-cards">
+                <article class="hero-card weather-card" id="weather">
+                    <div class="empty-state">Search a city to view weather.</div>
+                </article>
+
+                <article class="hero-card air-card" id="air-quality">
+                    <p class="card-label">Air Quality</p>
+                    <h2>--</h2>
+                    <p id="air-quality-text">Waiting for search...</p>
+                </article>
+            </section>
+
+            <section class="metrics-grid" id="details"></section>
+
+            <section class="temperature-strip">
+                <h2>How's the temperature today?</h2>
+                <div class="chart-wrap">
+                    <canvas id="hourly-chart"></canvas>
+                </div>
+                <div class="temp-list" id="temperature-list"></div>
+            </section>
+
+            <section class="mood-card" id="mood">Search for a city to get mood suggestions.</section>
+            <p class="data-note" id="data-note">Data source: Open-Meteo. Updated: --</p>
+        </section>
+
+        <aside class="right-panel">
+            <div class="right-top" id="right-current">
+                <p class="weekday">--</p>
+                <h2>--</h2>
+                <p class="place">Search a location</p>
+            </div>
+
+            <div class="sun-card" id="sun-card">
+                <p>Sunrise: --</p>
+                <p>Sunset: --</p>
+            </div>
+
+            <div class="forecast-card" id="forecast-card">
+                <h3>5 Day Prediction</h3>
+                <div id="forecast-list">
+                    <p>Search a city to see trend summary.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script src="project.js"></script>
+</body>
+
+</html>
